@@ -7,7 +7,7 @@
     <semanticResources>../xtext/nl.tue.dsldesign.robot/src/nl/tue/dsldesign/GenerateRobot.mwe2</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_P4hjwPe_EeyvgOYqSVVNIQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_P5kFkPe_EeyvgOYqSVVNIQ" name="metamodel" repPath="#_P5XRQPe_EeyvgOYqSVVNIQ" changeId="7516ea38-dc90-4838-aa93-608d63b9a393">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_P5kFkPe_EeyvgOYqSVVNIQ" name="metamodel" repPath="#_P5XRQPe_EeyvgOYqSVVNIQ" changeId="e67b27c6-e733-4849-aedb-db7d6366004f">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="metamodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -246,9 +246,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9lWNcPhlEeyvgOYqSVVNIQ" name="[0..*] step" sourceNode="_6J1v4PhlEeyvgOYqSVVNIQ" targetNode="_A4JQYPhlEeyvgOYqSVVNIQ">
-      <target xmi:type="ecore:EReference" href="metamodel.ecore#//Model/step"/>
-      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//Model/step"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9lWNcPhlEeyvgOYqSVVNIQ" name="[0..*] steps" sourceNode="_6J1v4PhlEeyvgOYqSVVNIQ" targetNode="_A4JQYPhlEeyvgOYqSVVNIQ">
+      <target xmi:type="ecore:EReference" href="metamodel.ecore#//Model/steps"/>
+      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//Model/steps"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_9lYCo_hlEeyvgOYqSVVNIQ" description="_9lYCoPhlEeyvgOYqSVVNIQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_9lYCpfhlEeyvgOYqSVVNIQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>

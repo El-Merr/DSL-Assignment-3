@@ -25,7 +25,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Initial/yPos"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/step"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/steps"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/initial"/>
     </genClasses>
   </genPackages>
