@@ -52,12 +52,12 @@ public interface Step extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distance</em>' attribute.
-	 * @see #setDistance(Integer)
+	 * @see #setDistance(int)
 	 * @see nl.tue.dsldesign.robot.metamodel.MetamodelPackage#getStep_Distance()
 	 * @model
 	 * @generated
 	 */
-	Integer getDistance();
+	int getDistance();
 
 	/**
 	 * Sets the value of the '{@link nl.tue.dsldesign.robot.metamodel.Step#getDistance <em>Distance</em>}' attribute.
@@ -67,6 +67,6 @@ public interface Step extends EObject {
 	 * @see #getDistance()
 	 * @generated
 	 */
-	void setDistance(Integer value);
+	void setDistance(int value);
 
 } // Step

@@ -7,6 +7,7 @@ import nl.tue.dsldesign.robot.metamodel.Initial;
 import nl.tue.dsldesign.robot.metamodel.MetamodelFactory;
 import nl.tue.dsldesign.robot.metamodel.MetamodelPackage;
 import nl.tue.dsldesign.robot.metamodel.Model;
+import nl.tue.dsldesign.robot.metamodel.Robot;
 import nl.tue.dsldesign.robot.metamodel.Step;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -44,6 +45,13 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	private EClass modelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass robotEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,7 +192,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Step() {
+	public EReference getModel_Robots() {
 		return (EReference) modelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -193,8 +201,26 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Initial() {
-		return (EReference) modelEClass.getEStructuralFeatures().get(1);
+	public EClass getRobot() {
+		return robotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRobot_Steps() {
+		return (EReference) robotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRobot_Initial() {
+		return (EReference) robotEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -244,8 +270,11 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(initialEClass, INITIAL__YPOS);
 
 		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__STEP);
-		createEReference(modelEClass, MODEL__INITIAL);
+		createEReference(modelEClass, MODEL__ROBOTS);
+
+		robotEClass = createEClass(ROBOT);
+		createEReference(robotEClass, ROBOT__STEPS);
+		createEReference(robotEClass, ROBOT__INITIAL);
 
 		// Create enums
 		directionEEnum = createEEnum(DIRECTION);
@@ -285,20 +314,25 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStep_Direction(), this.getDirection(), "direction", null, 1, 1, Step.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStep_Distance(), ecorePackage.getEIntegerObject(), "distance", null, 0, 1, Step.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStep_Distance(), ecorePackage.getEInt(), "distance", null, 0, 1, Step.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(initialEClass, Initial.class, "Initial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInitial_XPos(), ecorePackage.getEIntegerObject(), "xPos", null, 0, 1, Initial.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInitial_YPos(), ecorePackage.getEIntegerObject(), "yPos", null, 0, 1, Initial.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInitial_XPos(), ecorePackage.getEInt(), "xPos", null, 1, 1, Initial.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInitial_YPos(), ecorePackage.getEInt(), "yPos", null, 1, 1, Initial.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Step(), this.getStep(), null, "step", null, 0, -1, Model.class, !IS_TRANSIENT,
+		initEReference(getModel_Robots(), this.getRobot(), null, "robots", null, 0, -1, Model.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getModel_Initial(), this.getInitial(), null, "initial", null, 0, 1, Model.class, !IS_TRANSIENT,
+
+		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRobot_Steps(), this.getStep(), null, "steps", null, 0, -1, Robot.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getRobot_Initial(), this.getInitial(), null, "initial", null, 0, 1, Robot.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

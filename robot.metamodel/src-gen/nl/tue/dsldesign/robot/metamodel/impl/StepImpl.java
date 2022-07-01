@@ -56,7 +56,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer DISTANCE_EDEFAULT = null;
+	protected static final int DISTANCE_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getDistance() <em>Distance</em>}' attribute.
@@ -66,7 +66,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer distance = DISTANCE_EDEFAULT;
+	protected int distance = DISTANCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getDistance() {
+	public int getDistance() {
 		return distance;
 	}
 
@@ -123,8 +123,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDistance(Integer newDistance) {
-		Integer oldDistance = distance;
+	public void setDistance(int newDistance) {
+		int oldDistance = distance;
 		distance = newDistance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.STEP__DISTANCE, oldDistance,
@@ -194,7 +194,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 		case MetamodelPackage.STEP__DIRECTION:
 			return direction != DIRECTION_EDEFAULT;
 		case MetamodelPackage.STEP__DISTANCE:
-			return DISTANCE_EDEFAULT == null ? distance != null : !DISTANCE_EDEFAULT.equals(distance);
+			return distance != DISTANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

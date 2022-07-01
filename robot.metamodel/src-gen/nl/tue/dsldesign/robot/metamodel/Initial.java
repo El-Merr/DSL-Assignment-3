@@ -27,12 +27,12 @@ public interface Initial extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XPos</em>' attribute.
-	 * @see #setXPos(Integer)
+	 * @see #setXPos(int)
 	 * @see nl.tue.dsldesign.robot.metamodel.MetamodelPackage#getInitial_XPos()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	Integer getXPos();
+	int getXPos();
 
 	/**
 	 * Sets the value of the '{@link nl.tue.dsldesign.robot.metamodel.Initial#getXPos <em>XPos</em>}' attribute.
@@ -42,19 +42,19 @@ public interface Initial extends EObject {
 	 * @see #getXPos()
 	 * @generated
 	 */
-	void setXPos(Integer value);
+	void setXPos(int value);
 
 	/**
 	 * Returns the value of the '<em><b>YPos</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>YPos</em>' attribute.
-	 * @see #setYPos(Integer)
+	 * @see #setYPos(int)
 	 * @see nl.tue.dsldesign.robot.metamodel.MetamodelPackage#getInitial_YPos()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	Integer getYPos();
+	int getYPos();
 
 	/**
 	 * Sets the value of the '{@link nl.tue.dsldesign.robot.metamodel.Initial#getYPos <em>YPos</em>}' attribute.
@@ -64,6 +64,6 @@ public interface Initial extends EObject {
 	 * @see #getYPos()
 	 * @generated
 	 */
-	void setYPos(Integer value);
+	void setYPos(int value);
 
 } // Initial

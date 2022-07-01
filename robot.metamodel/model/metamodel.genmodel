@@ -25,8 +25,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Initial/yPos"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/steps"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/initial"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/robots"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Robot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Robot/steps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Robot/initial"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -82,6 +82,11 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRobot(Robot object) {
+			return createRobotAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -139,6 +144,20 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nl.tue.dsldesign.robot.metamodel.Robot <em>Robot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nl.tue.dsldesign.robot.metamodel.Robot
+	 * @generated
+	 */
+	public Adapter createRobotAdapter() {
 		return null;
 	}
 

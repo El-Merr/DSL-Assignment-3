@@ -35,7 +35,7 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer XPOS_EDEFAULT = null;
+	protected static final int XPOS_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getXPos() <em>XPos</em>}' attribute.
@@ -45,7 +45,7 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer xPos = XPOS_EDEFAULT;
+	protected int xPos = XPOS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getYPos() <em>YPos</em>}' attribute.
@@ -55,7 +55,7 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer YPOS_EDEFAULT = null;
+	protected static final int YPOS_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getYPos() <em>YPos</em>}' attribute.
@@ -65,7 +65,7 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer yPos = YPOS_EDEFAULT;
+	protected int yPos = YPOS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,7 +91,7 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getXPos() {
+	public int getXPos() {
 		return xPos;
 	}
 
@@ -100,8 +100,8 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setXPos(Integer newXPos) {
-		Integer oldXPos = xPos;
+	public void setXPos(int newXPos) {
+		int oldXPos = xPos;
 		xPos = newXPos;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.INITIAL__XPOS, oldXPos, xPos));
@@ -112,7 +112,7 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getYPos() {
+	public int getYPos() {
 		return yPos;
 	}
 
@@ -121,8 +121,8 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setYPos(Integer newYPos) {
-		Integer oldYPos = yPos;
+	public void setYPos(int newYPos) {
+		int oldYPos = yPos;
 		yPos = newYPos;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.INITIAL__YPOS, oldYPos, yPos));
@@ -189,9 +189,9 @@ public class InitialImpl extends MinimalEObjectImpl.Container implements Initial
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case MetamodelPackage.INITIAL__XPOS:
-			return XPOS_EDEFAULT == null ? xPos != null : !XPOS_EDEFAULT.equals(xPos);
+			return xPos != XPOS_EDEFAULT;
 		case MetamodelPackage.INITIAL__YPOS:
-			return YPOS_EDEFAULT == null ? yPos != null : !YPOS_EDEFAULT.equals(yPos);
+			return yPos != YPOS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

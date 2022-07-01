@@ -160,22 +160,13 @@ public interface MetamodelPackage extends EPackage {
 	int MODEL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Step</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Robots</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__STEP = 0;
-
-	/**
-	 * The feature id for the '<em><b>Initial</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__INITIAL = 1;
+	int MODEL__ROBOTS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -184,7 +175,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 2;
+	int MODEL_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -196,6 +187,52 @@ public interface MetamodelPackage extends EPackage {
 	int MODEL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link nl.tue.dsldesign.robot.metamodel.impl.RobotImpl <em>Robot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nl.tue.dsldesign.robot.metamodel.impl.RobotImpl
+	 * @see nl.tue.dsldesign.robot.metamodel.impl.MetamodelPackageImpl#getRobot()
+	 * @generated
+	 */
+	int ROBOT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__STEPS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Initial</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__INITIAL = 1;
+
+	/**
+	 * The number of structural features of the '<em>Robot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Robot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link nl.tue.dsldesign.robot.metamodel.Direction <em>Direction</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,7 +240,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see nl.tue.dsldesign.robot.metamodel.impl.MetamodelPackageImpl#getDirection()
 	 * @generated
 	 */
-	int DIRECTION = 3;
+	int DIRECTION = 4;
 
 	/**
 	 * Returns the meta object for class '{@link nl.tue.dsldesign.robot.metamodel.Step <em>Step</em>}'.
@@ -280,26 +317,47 @@ public interface MetamodelPackage extends EPackage {
 	EClass getModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link nl.tue.dsldesign.robot.metamodel.Model#getStep <em>Step</em>}'.
+	 * Returns the meta object for the containment reference list '{@link nl.tue.dsldesign.robot.metamodel.Model#getRobots <em>Robots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Step</em>'.
-	 * @see nl.tue.dsldesign.robot.metamodel.Model#getStep()
+	 * @return the meta object for the containment reference list '<em>Robots</em>'.
+	 * @see nl.tue.dsldesign.robot.metamodel.Model#getRobots()
 	 * @see #getModel()
 	 * @generated
 	 */
-	EReference getModel_Step();
+	EReference getModel_Robots();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link nl.tue.dsldesign.robot.metamodel.Model#getInitial <em>Initial</em>}'.
+	 * Returns the meta object for class '{@link nl.tue.dsldesign.robot.metamodel.Robot <em>Robot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Robot</em>'.
+	 * @see nl.tue.dsldesign.robot.metamodel.Robot
+	 * @generated
+	 */
+	EClass getRobot();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nl.tue.dsldesign.robot.metamodel.Robot#getSteps <em>Steps</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Steps</em>'.
+	 * @see nl.tue.dsldesign.robot.metamodel.Robot#getSteps()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_Steps();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link nl.tue.dsldesign.robot.metamodel.Robot#getInitial <em>Initial</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Initial</em>'.
-	 * @see nl.tue.dsldesign.robot.metamodel.Model#getInitial()
-	 * @see #getModel()
+	 * @see nl.tue.dsldesign.robot.metamodel.Robot#getInitial()
+	 * @see #getRobot()
 	 * @generated
 	 */
-	EReference getModel_Initial();
+	EReference getRobot_Initial();
 
 	/**
 	 * Returns the meta object for enum '{@link nl.tue.dsldesign.robot.metamodel.Direction <em>Direction</em>}'.
@@ -397,12 +455,30 @@ public interface MetamodelPackage extends EPackage {
 		EClass MODEL = eINSTANCE.getModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Step</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Robots</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__STEP = eINSTANCE.getModel_Step();
+		EReference MODEL__ROBOTS = eINSTANCE.getModel_Robots();
+
+		/**
+		 * The meta object literal for the '{@link nl.tue.dsldesign.robot.metamodel.impl.RobotImpl <em>Robot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nl.tue.dsldesign.robot.metamodel.impl.RobotImpl
+		 * @see nl.tue.dsldesign.robot.metamodel.impl.MetamodelPackageImpl#getRobot()
+		 * @generated
+		 */
+		EClass ROBOT = eINSTANCE.getRobot();
+
+		/**
+		 * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__STEPS = eINSTANCE.getRobot_Steps();
 
 		/**
 		 * The meta object literal for the '<em><b>Initial</b></em>' containment reference feature.
@@ -410,7 +486,7 @@ public interface MetamodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__INITIAL = eINSTANCE.getModel_Initial();
+		EReference ROBOT__INITIAL = eINSTANCE.getRobot_Initial();
 
 		/**
 		 * The meta object literal for the '{@link nl.tue.dsldesign.robot.metamodel.Direction <em>Direction</em>}' enum.

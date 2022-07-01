@@ -63,6 +63,8 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			return createInitial();
 		case MetamodelPackage.MODEL:
 			return createModel();
+		case MetamodelPackage.ROBOT:
+			return createRobot();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +128,16 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	public Model createModel() {
 		ModelImpl model = new ModelImpl();
 		return model;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Robot createRobot() {
+		RobotImpl robot = new RobotImpl();
+		return robot;
 	}
 
 	/**
