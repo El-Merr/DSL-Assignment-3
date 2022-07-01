@@ -3,6 +3,8 @@
  */
 package nl.tue.dsldesign.robot.generator;
 
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
@@ -17,5 +19,8 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class RobotGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    String _plus = ("People to greet: " + _allContents);
+    fsa.generateFile("testModel.txt", _plus);
   }
 }
