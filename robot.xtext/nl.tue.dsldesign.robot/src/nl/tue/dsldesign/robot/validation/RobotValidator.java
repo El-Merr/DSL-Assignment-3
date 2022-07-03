@@ -15,8 +15,10 @@ import nl.tue.dsldesign.robot.metamodel.Step;
  */
 public class RobotValidator extends AbstractRobotValidator {
 	
+	int MAX_STEP_DISTANCE = 100;
+	
 	@Check
-	public void checkStepsInt(Robot r) {
+	public void checkStepsPositiveInt(Robot r) {
 		for (Step s : r.getSteps()) {
 			if (s.getDistance() < 0) {
 				error("Steps cannot be negative", s, null);
@@ -25,18 +27,24 @@ public class RobotValidator extends AbstractRobotValidator {
 	}
 	
 	@Check
-	public void checkInitFirst(Robot r) {
+	public void checkNoSequentialDirections(Robot r) {
 		String prevDirection = "";
 		for (Step s : r.getSteps()) {
 			if (s.getDirection().toString().equals(prevDirection)) {
 				error("Two squential steps cannot have the same direction. \n "
-						+ "Combine the steps distance instead", s, null);
+						+ "Combine the step's distance instead", s, null);
 			}
 			prevDirection = s.getDirection().toString();
 		}
 	}
+	
 	@Check
-	public void checkBad(Robot r) {
-		error("The checker works", r, null);
+	public void checkMaxStepSize(Robot r) {
+		
+		for (Step s : r.getSteps()) {
+			if (s.getDistance() > MAX_STEP_DISTANCE) {
+				error("The maximum distance per step is 100", s, null);
+			}
+		}
 	}
 }
