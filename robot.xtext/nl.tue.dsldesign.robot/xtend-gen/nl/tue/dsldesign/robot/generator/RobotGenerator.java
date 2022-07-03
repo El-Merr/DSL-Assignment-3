@@ -3,12 +3,17 @@
  */
 package nl.tue.dsldesign.robot.generator;
 
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject;
+import com.google.common.collect.Iterators;
+import nl.tue.dsldesign.robot.metamodel.Direction;
+import nl.tue.dsldesign.robot.metamodel.Robot;
+import nl.tue.dsldesign.robot.metamodel.Step;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -19,8 +24,25 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class RobotGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    TreeIterator<EObject> _allContents = resource.getAllContents();
-    String _plus = ("People to greet: " + _allContents);
-    fsa.generateFile("testModel.txt", _plus);
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Iterable<Robot> _iterable = IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class));
+      for(final Robot robot : _iterable) {
+        _builder.append("<Robot>");
+        _builder.newLine();
+        {
+          EList<Step> _steps = robot.getSteps();
+          for(final Step step : _steps) {
+            _builder.append("Step ");
+            Direction _direction = step.getDirection();
+            _builder.append(_direction);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("</Robot>");
+        _builder.newLine();
+      }
+    }
+    fsa.generateFile("testModel.txt", _builder);
   }
 }

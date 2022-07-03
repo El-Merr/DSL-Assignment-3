@@ -8,6 +8,13 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
+import nl.tue.dsldesign.robot.metamodel.Robot
+import nl.tue.dsldesign.robot.metamodel.Step
+import nl.tue.dsldesign.robot.metamodel.Initial
+
+//import org.eclipse.emf.ecore.util.EcoreUtil
+//import org.eclipse.emf.common.util.URI
+
 /**
  * Generates code from your model files on save.
  * 
@@ -16,15 +23,30 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class RobotGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		// resource.setURI('testModel.xmi')
+//		String out = '';
 		
-		fsa.generateFile('testModel.txt', 'People to greet: ' + 
-			resource.allContents
+		
+		fsa.generateFile('testModel.txt','''
+            «FOR robot : resource.allContents.filter(Robot).toIterable»
+                <Robot>
+                	«FOR step : robot.steps»
+    	         		Step «step.direction»
+    	            «ENDFOR»
+                </Robot>
+            «ENDFOR»
+        '''
 		)
-		
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
 	}
+	
+//	def compile(Robot robot) {
+//		'''
+//		
+//		«FOR step : robot.allContents.filter(Step).toIterable»
+//            Step «step.direction»
+//        «ENDFOR»
+//		'''
+//	}
+
+
 }

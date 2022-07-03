@@ -19,4 +19,4 @@ begin
 	right
 	down
 	left
-end 
+end

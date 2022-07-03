@@ -1,1 +1,18 @@
-People to greet: []
+<Robot>
+Step down
+Step up
+Step down
+Step left
+Step right
+Step up
+</Robot>
+<Robot>
+</Robot>
+<Robot>
+</Robot>
+<Robot>
+Step up
+Step right
+Step down
+Step left
+</Robot>
