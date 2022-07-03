@@ -3,6 +3,10 @@
  */
 package nl.tue.dsldesign.robot.validation;
 
+import org.eclipse.xtext.validation.Check;
+
+import nl.tue.dsldesign.robot.metamodel.Robot;
+import nl.tue.dsldesign.robot.metamodel.Step;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +15,28 @@ package nl.tue.dsldesign.robot.validation;
  */
 public class RobotValidator extends AbstractRobotValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					RobotPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	@Check
+	public void checkStepsInt(Robot r) {
+		for (Step s : r.getSteps()) {
+			if (s.getDistance() < 0) {
+				error("Steps cannot be negative", s, null);
+			}
+		}
+	}
 	
+	@Check
+	public void checkInitFirst(Robot r) {
+		String prevDirection = "";
+		for (Step s : r.getSteps()) {
+			if (s.getDirection().toString().equals(prevDirection)) {
+				error("Two squential steps cannot have the same direction. \n "
+						+ "Combine the steps distance instead", s, null);
+			}
+			prevDirection = s.getDirection().toString();
+		}
+	}
+	@Check
+	public void checkBad(Robot r) {
+		error("The checker works", r, null);
+	}
 }
