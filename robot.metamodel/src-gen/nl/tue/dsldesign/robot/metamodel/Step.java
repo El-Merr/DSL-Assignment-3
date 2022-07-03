@@ -49,12 +49,13 @@ public interface Step extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Distance</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distance</em>' attribute.
 	 * @see #setDistance(int)
 	 * @see nl.tue.dsldesign.robot.metamodel.MetamodelPackage#getStep_Distance()
-	 * @model
+	 * @model default="1"
 	 * @generated
 	 */
 	int getDistance();

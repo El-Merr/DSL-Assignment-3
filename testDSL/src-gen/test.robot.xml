@@ -6,7 +6,7 @@
 		<step dir="up" dist="2"/>
 		<step dir="down" dist="3"/>
 		<step dir="left" dist="1"/>
-		<step dir="right" dist="0"/>
+		<step dir="right" dist="1"/>
 		<step dir="up" dist="2"/>
 	</robot>
 	<robot>
@@ -17,10 +17,10 @@
 	</robot>
 	<robot>
 		<initial x="3" y="3"/>
-		<step dir="up" dist="0"/>
-		<step dir="right" dist="0"/>
-		<step dir="down" dist="0"/>
-		<step dir="left" dist="0"/>
+		<step dir="up" dist="1"/>
+		<step dir="right" dist="1"/>
+		<step dir="down" dist="1"/>
+		<step dir="left" dist="1"/>
 	</robot>
 	<robot>
 		<step dir="up" dist="2"/>

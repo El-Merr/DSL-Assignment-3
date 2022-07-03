@@ -56,7 +56,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int DISTANCE_EDEFAULT = 0;
+	protected static final int DISTANCE_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getDistance() <em>Distance</em>}' attribute.
