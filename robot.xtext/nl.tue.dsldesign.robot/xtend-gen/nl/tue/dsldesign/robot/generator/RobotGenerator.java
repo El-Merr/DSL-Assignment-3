@@ -34,43 +34,53 @@ public class RobotGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     _builder.newLine();
+    _builder.append("<model>");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _compileRobots = this.compileRobots(((Robot[])Conversions.unwrapArray(IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class)), Robot.class)));
+    _builder.append(_compileRobots, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("</model>");
+    _builder.newLine();
+    fsa.generateFile((filename + ".xml"), _builder);
+  }
+
+  public CharSequence compileRobots(final Robot[] robots) {
+    StringConcatenation _builder = new StringConcatenation();
     {
-      Iterable<Robot> _iterable = IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class));
-      for(final Robot robot : _iterable) {
-        _builder.append("            ");
-        _builder.append("<Robot>");
+      for(final Robot robot : robots) {
+        _builder.append("<robot>");
         _builder.newLine();
         {
           Initial _initial = robot.getInitial();
           boolean _tripleNotEquals = (_initial != null);
           if (_tripleNotEquals) {
-            _builder.append("                \t");
+            _builder.append("\t");
             CharSequence _compileInit = this.compileInit(robot.getInitial());
-            _builder.append(_compileInit, "                \t");
+            _builder.append(_compileInit, "\t");
             _builder.newLineIfNotEmpty();
           }
         }
-        _builder.append("                \t");
+        _builder.append("\t");
         CharSequence _compileSteps = this.compileSteps(((Step[])Conversions.unwrapArray(robot.getSteps(), Step.class)));
-        _builder.append(_compileSteps, "                \t");
+        _builder.append(_compileSteps, "\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("                ");
-        _builder.append("</Robot>");
+        _builder.append("</robot>");
         _builder.newLine();
       }
     }
-    fsa.generateFile((filename + ".xml"), _builder);
+    return _builder;
   }
 
   public CharSequence compileInit(final Initial init) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<Initial x=");
+    _builder.append("<initial x=\"");
     int _xPos = init.getXPos();
     _builder.append(_xPos);
-    _builder.append(" y=");
+    _builder.append("\" y=\"");
     int _yPos = init.getYPos();
     _builder.append(_yPos);
-    _builder.append(">");
+    _builder.append("\"/>");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -79,13 +89,13 @@ public class RobotGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Step step : steps) {
-        _builder.append("<Step dir=");
+        _builder.append("<step dir=\"");
         Direction _direction = step.getDirection();
         _builder.append(_direction);
-        _builder.append(" dist=");
+        _builder.append("\" dist=\"");
         int _distance = step.getDistance();
         _builder.append(_distance);
-        _builder.append(">");
+        _builder.append("\"/>");
         _builder.newLineIfNotEmpty();
       }
     }

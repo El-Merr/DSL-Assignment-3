@@ -7,7 +7,7 @@
     <semanticResources>../xtext/nl.tue.dsldesign.robot/src/nl/tue/dsldesign/GenerateRobot.mwe2</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_P4hjwPe_EeyvgOYqSVVNIQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_P5kFkPe_EeyvgOYqSVVNIQ" name="metamodel" repPath="#_P5XRQPe_EeyvgOYqSVVNIQ" changeId="1b751ab9-0a9d-4016-8bb5-2476b5a2787b">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_P5kFkPe_EeyvgOYqSVVNIQ" name="metamodel" repPath="#_P5XRQPe_EeyvgOYqSVVNIQ" changeId="42acb7f2-9ca6-4c2f-92b8-d2e700e36898">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="metamodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -181,7 +181,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_PY5kEPhlEeyvgOYqSVVNIQ" name="distance : EInt" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_PY5kEPhlEeyvgOYqSVVNIQ" name="distance : EInt = 1" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="metamodel.ecore#//Step/distance"/>
         <semanticElements xmi:type="ecore:EAttribute" href="metamodel.ecore#//Step/distance"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_YfsJcvhlEeyvgOYqSVVNIQ" labelAlignment="LEFT">

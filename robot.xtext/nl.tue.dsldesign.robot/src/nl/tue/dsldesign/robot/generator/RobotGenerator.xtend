@@ -26,31 +26,40 @@ class RobotGenerator extends AbstractGenerator {
 		var file = resource.getURI().toString().split('/')
 		var filename = file.get(file.size -1)
 		
-		fsa.generateFile(filename + '.xml','''
-			<?xml version="1.0" encoding="UTF-8"?>
-            «FOR robot : resource.allContents.filter(Robot).toIterable»
-            	<Robot>
-                	«IF robot.initial !== null»
-                		«compileInit(robot.initial)»
-                	«ENDIF»
-                	«compileSteps(robot.steps)»
-                </Robot>
-            «ENDFOR»
-        '''
+		fsa.generateFile(filename + '.xml',
+		'''
+		<?xml version="1.0" encoding="UTF-8"?>
+		<model>
+			«compileRobots(resource.allContents.filter(Robot).toIterable)»
+		</model>
+		'''
 		)
+	}
+	
+	def compileRobots(Robot[] robots) {
+		'''
+		«FOR robot : robots»
+		<robot>
+			«IF robot.initial !== null»
+			«compileInit(robot.initial)»
+			«ENDIF»
+			«compileSteps(robot.steps)»
+		</robot>
+		«ENDFOR»
+		'''
 	}
 	
 	def compileInit(Initial init) {
 		'''
-		<Initial x=«init.XPos» y=«init.YPos»>
+		<initial x="«init.XPos»" y="«init.YPos»"/>
 		'''
 	}
 	
 	def compileSteps(Step[] steps) {
 		'''
 		«FOR step : steps»
-			<Step dir=«step.direction» dist=«step.distance»>
-        «ENDFOR»
+		<step dir="«step.direction»" dist="«step.distance»"/>
+		«ENDFOR»
 		'''
 	}
 
