@@ -23,30 +23,36 @@ import nl.tue.dsldesign.robot.metamodel.Initial
 class RobotGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		// resource.setURI('testModel.xmi')
-//		String out = '';
+		var file = resource.getURI().toString().split('/')
+		var filename = file.get(file.size -1)
 		
-		
-		fsa.generateFile('testModel.txt','''
+		fsa.generateFile(filename + '.xml','''
+			<?xml version="1.0" encoding="UTF-8"?>
             «FOR robot : resource.allContents.filter(Robot).toIterable»
-                <Robot>
-                	«FOR step : robot.steps»
-    	         		Step «step.direction»
-    	            «ENDFOR»
+            	<Robot>
+                	«IF robot.initial !== null»
+                		«compileInit(robot.initial)»
+                	«ENDIF»
+                	«compileSteps(robot.steps)»
                 </Robot>
             «ENDFOR»
         '''
 		)
 	}
 	
-//	def compile(Robot robot) {
-//		'''
-//		
-//		«FOR step : robot.allContents.filter(Step).toIterable»
-//            Step «step.direction»
-//        «ENDFOR»
-//		'''
-//	}
+	def compileInit(Initial init) {
+		'''
+		<Initial x=«init.XPos» y=«init.YPos»>
+		'''
+	}
+	
+	def compileSteps(Step[] steps) {
+		'''
+		«FOR step : steps»
+			<Step dir=«step.direction» dist=«step.distance»>
+        «ENDFOR»
+		'''
+	}
 
 
 }

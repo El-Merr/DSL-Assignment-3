@@ -4,15 +4,17 @@
 package nl.tue.dsldesign.robot.generator;
 
 import com.google.common.collect.Iterators;
+import java.util.List;
 import nl.tue.dsldesign.robot.metamodel.Direction;
+import nl.tue.dsldesign.robot.metamodel.Initial;
 import nl.tue.dsldesign.robot.metamodel.Robot;
 import nl.tue.dsldesign.robot.metamodel.Step;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
@@ -24,25 +26,69 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 public class RobotGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    String[] file = resource.getURI().toString().split("/");
+    final String[] _converted_file = (String[])file;
+    int _size = ((List<String>)Conversions.doWrapArray(_converted_file)).size();
+    int _minus = (_size - 1);
+    String filename = file[_minus];
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    _builder.newLine();
     {
       Iterable<Robot> _iterable = IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class));
       for(final Robot robot : _iterable) {
+        _builder.append("            ");
         _builder.append("<Robot>");
         _builder.newLine();
         {
-          EList<Step> _steps = robot.getSteps();
-          for(final Step step : _steps) {
-            _builder.append("Step ");
-            Direction _direction = step.getDirection();
-            _builder.append(_direction);
+          Initial _initial = robot.getInitial();
+          boolean _tripleNotEquals = (_initial != null);
+          if (_tripleNotEquals) {
+            _builder.append("                \t");
+            CharSequence _compileInit = this.compileInit(robot.getInitial());
+            _builder.append(_compileInit, "                \t");
             _builder.newLineIfNotEmpty();
           }
         }
+        _builder.append("                \t");
+        CharSequence _compileSteps = this.compileSteps(((Step[])Conversions.unwrapArray(robot.getSteps(), Step.class)));
+        _builder.append(_compileSteps, "                \t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("                ");
         _builder.append("</Robot>");
         _builder.newLine();
       }
     }
-    fsa.generateFile("testModel.txt", _builder);
+    fsa.generateFile((filename + ".xml"), _builder);
+  }
+
+  public CharSequence compileInit(final Initial init) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<Initial x=");
+    int _xPos = init.getXPos();
+    _builder.append(_xPos);
+    _builder.append(" y=");
+    int _yPos = init.getYPos();
+    _builder.append(_yPos);
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  public CharSequence compileSteps(final Step[] steps) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final Step step : steps) {
+        _builder.append("<Step dir=");
+        Direction _direction = step.getDirection();
+        _builder.append(_direction);
+        _builder.append(" dist=");
+        int _distance = step.getDistance();
+        _builder.append(_distance);
+        _builder.append(">");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
   }
 }

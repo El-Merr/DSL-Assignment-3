@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            <Robot>
+                	<Initial x=1 y=2>
+                	<Step dir=down dist=3>
+                	<Step dir=up dist=2>
+                	<Step dir=down dist=3>
+                	<Step dir=left dist=1>
+                	<Step dir=right dist=0>
+                	<Step dir=up dist=2>
+                </Robot>
+            <Robot>
+                	<Initial x=1 y=1>
+                </Robot>
+            <Robot>
+                	<Initial x=2 y=2>
+                </Robot>
+            <Robot>
+                	<Initial x=3 y=3>
+                	<Step dir=up dist=0>
+                	<Step dir=right dist=0>
+                	<Step dir=down dist=0>
+                	<Step dir=left dist=0>
+                </Robot>
+            <Robot>
+                	<Step dir=up dist=2>
+                </Robot>

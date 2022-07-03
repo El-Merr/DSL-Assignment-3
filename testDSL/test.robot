@@ -20,3 +20,6 @@ begin
 	down
 	left
 end
+begin
+	up 2
+end
