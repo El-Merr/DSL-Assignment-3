@@ -1,40 +1,75 @@
 import xml.etree.ElementTree as ET
-import graphviz
+from PIL import Image, ImageDraw
+import seaborn as sns
 
 import os
+import glob
 
-filename = '../testDSL/src-gen/test.robot.xml'
+for file in glob.glob(r'../testDSL/src-gen/*.xml'):
+    filename = file.split('\\')[-1].split('.xml')[0]
 
-if not os.path.exists(filename):
-    print('ERROR : This path does not exist !!')
-
-with open(filename, 'rb') as file:
-    tree = ET.parse(file)
-root = tree.getroot()
-
-# structure_name = 'HCLgraph' # structure.findtext('./Name')
-# graph = graphviz.Digraph(format='svg',comment='structure_name', node_attr={'shape': 'box'})
-
-
-i = 0
-
-# read all the structures
-# for node in root.findall('nodes'): # root: #.findall('./Graph'):
-#     label = node.attrib['label']
-#     nodeId = "//@nodes.{}".format(i)
-#     # n = Node(node.attrib['label'], i)
-#     # nodelist.append(n)
+    if not os.path.exists(file):
+        print('ERROR : This path does not exist !!')
     
-#     if 'shape' in node.attrib:
-#         graph.node(nodeId, label, shape='oval')
-#     graph.node(nodeId, label)
+    with open(file, 'rb') as file:
+        tree = ET.parse(file)
+    root = tree.getroot()
     
-#     i += 1
+    def dirX(d):
+        switch ={
+            'left': -1,
+            'right': 1,
+            'up': 0,
+            'down': 0,
+            }
+        return switch.get(d)
+    
+    def dirY(d):
+        switch ={
+            'left': 0,
+            'right': 0,
+            'up': -1,
+            'down': 1,
+            }
+        return switch.get(d)
+    
+    scale = 30
+    w,h = 400, 400
+    
+    image= Image.new("RGB", (w,h))
+    img = ImageDraw.Draw(image)
+    
+    palette = sns.color_palette(n_colors=len(root.findall('robot'))+1).as_hex()
+    c = 0
+    
+    for robot in root.findall('robot'):
+        x, y = w/2, h/2
         
-#     for edge in node:
-#         target = edge.attrib['target']
-#         if 'style' in edge.attrib:
-#             graph.edge(nodeId, target, style='dashed')
-#         else: graph.edge(nodeId, target)
+        if (robot.find('initial') is not None):
+            i = robot.find('initial')
+            x, y = x + scale * int(i.attrib['x']), y + scale * int(i.attrib['y'])
+    
+        recW = 5
+        img.rectangle([(x-recW,y-recW), (x+recW,y+recW)], fill=palette[c])
+        
+        for step in robot.findall('step'):
+            newX = x + (dirX(step.attrib['dir']) * int(step.attrib['dist']) * scale)
+            newY = y + (dirY(step.attrib['dir']) * int(step.attrib['dist']) * scale)
+            
+            img.line([(x,y), (newX,newY)], fill=palette[c], width=2)
+            
+            x, y = newX, newY
+        
+        c+=1
+            
+    image.show()
+    image.save(r'results/'+filename+'.jpg')
+
+    
+    
+    
+    
+    
+    
     
     
