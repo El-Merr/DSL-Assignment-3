@@ -47,7 +47,7 @@ for file in glob.glob(r'../testDSL/src-gen/*.xml'):
         
         if (robot.find('initial') is not None):
             i = robot.find('initial')
-            x, y = x + scale * int(i.attrib['x']), y + scale * int(i.attrib['y'])
+            x, y = x + scale * -int(i.attrib['x']), y + scale * -int(i.attrib['y'])
     
         recW = 5
         img.rectangle([(x-recW,y-recW), (x+recW,y+recW)], fill=palette[c])
@@ -62,7 +62,7 @@ for file in glob.glob(r'../testDSL/src-gen/*.xml'):
         
         c+=1
             
-    image.show()
+    # image.show()
     image.save(r'results/'+filename+'.jpg')
 
     
