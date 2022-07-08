@@ -25,4 +25,4 @@ enum Direction returns Direction:
 				up = 'up' | down = 'down' | left = 'left' | right = 'right';
 
 EInt returns ecore::EInt:
-	INT;
+	'-'? INT;
