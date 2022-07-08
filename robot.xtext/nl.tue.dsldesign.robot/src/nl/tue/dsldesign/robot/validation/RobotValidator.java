@@ -18,6 +18,16 @@ public class RobotValidator extends AbstractRobotValidator {
 	int MAX_STEP_DISTANCE = 5;
 	int BOUND = 10;
 	
+	// checks that step distances are not negative
+	@Check
+	public void checkDistanceNonNegative(Robot r) {
+		for (Step s : r.getSteps()) {
+			if (s.getDistance() < 0) {
+				error("A step's distance must be positive", s, null);
+			}
+		}
+	}
+	
 	// checks if no two sequential steps have the same direction
 	@Check
 	public void checkNoSequentialDirections(Robot r) {
