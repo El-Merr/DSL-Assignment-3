@@ -10,7 +10,7 @@ The Eclipse Ecore Metamodel is located in:
 The Eclipse Xtext project is located in:
     DSL-Assignment-3/robot.xtext/
 
-The Eclipse runtime project is located in:
+The tests for the Eclipse runtime project is located in:
     DSL-Assignment-3/textDSL/
 This project contains some passing .robot tests in:
     DSL-Assignment-3/textDSL/PassingTests
