@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<robot>
+		<initial x="-1" y="-1"/>
+		<step dir="up" dist="3"/>
+		<step dir="down" dist="2"/>
+	</robot>
+	<robot>
+		<step dir="left" dist="2"/>
+		<step dir="down" dist="2"/>
+		<step dir="up" dist="4"/>
+		<step dir="down" dist="4"/>
+	</robot>
+	<robot>
+		<initial x="1" y="1"/>
+		<step dir="right" dist="3"/>
+		<step dir="down" dist="2"/>
+		<step dir="up" dist="4"/>
+	</robot>
+</model>

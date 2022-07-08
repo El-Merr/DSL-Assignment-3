@@ -4,8 +4,8 @@ begin
 	down 2
 end
 begin
-	initial 1, 1
-	left 6
+	initial -1, 1
+	left 0
 	down 2
 	up 4
 	down 4
