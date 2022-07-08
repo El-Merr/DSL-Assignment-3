@@ -37,6 +37,7 @@ public class RobotParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRobotAccess().getGroup_3(), "rule__Robot__Group_3__0");
 			builder.put(grammarAccess.getStepAccess().getGroup(), "rule__Step__Group__0");
 			builder.put(grammarAccess.getInitialAccess().getGroup(), "rule__Initial__Group__0");
+			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getModelAccess().getRobotsAssignment_1(), "rule__Model__RobotsAssignment_1");
 			builder.put(grammarAccess.getRobotAccess().getInitialAssignment_2(), "rule__Robot__InitialAssignment_2");
 			builder.put(grammarAccess.getRobotAccess().getStepsAssignment_3_0(), "rule__Robot__StepsAssignment_3_0");

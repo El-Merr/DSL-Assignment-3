@@ -22,24 +22,25 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRobotParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'begin'", "'end'", "'initial'", "','", "'up'", "'down'", "'left'", "'right'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'begin'", "'end'", "'initial'", "','", "'-'", "'up'", "'down'", "'left'", "'right'"
     };
-    public static final int RULE_ID=5;
-    public static final int RULE_WS=9;
     public static final int RULE_STRING=6;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_INT=4;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_ID=5;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=4;
+    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -337,7 +338,7 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( ((LA4_0>=15 && LA4_0<=18)) ) {
+            if ( ((LA4_0>=16 && LA4_0<=19)) ) {
                 alt4=1;
             }
             switch (alt4) {
@@ -381,7 +382,7 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
                         int alt3=2;
                         int LA3_0 = input.LA(1);
 
-                        if ( ((LA3_0>=15 && LA3_0<=18)) ) {
+                        if ( ((LA3_0>=16 && LA3_0<=19)) ) {
                             alt3=1;
                         }
 
@@ -558,7 +559,7 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_INT) ) {
+            if ( (LA5_0==RULE_INT||LA5_0==15) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -816,26 +817,55 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalRobot.g:346:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_INT_0= RULE_INT ;
+    // InternalRobot.g:346:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_INT_0=null;
+        Token kw=null;
+        Token this_INT_1=null;
 
 
         	enterRule();
 
         try {
-            // InternalRobot.g:352:2: (this_INT_0= RULE_INT )
-            // InternalRobot.g:353:2: this_INT_0= RULE_INT
+            // InternalRobot.g:352:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalRobot.g:353:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            this_INT_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+            // InternalRobot.g:353:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalRobot.g:354:3: (kw= '-' )? this_INT_1= RULE_INT
+            {
+            // InternalRobot.g:354:3: (kw= '-' )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            		current.merge(this_INT_0);
-            	
+            if ( (LA6_0==15) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalRobot.g:355:4: kw= '-'
+                    {
+                    kw=(Token)match(input,15,FOLLOW_9); 
 
-            		newLeafNode(this_INT_0, grammarAccess.getEIntAccess().getINTTerminalRuleCall());
-            	
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            			current.merge(this_INT_1);
+            		
+
+            			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
+            		
+
+            }
+
 
             }
 
@@ -856,7 +886,7 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDirection"
-    // InternalRobot.g:363:1: ruleDirection returns [Enumerator current=null] : ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) ) ;
+    // InternalRobot.g:372:1: ruleDirection returns [Enumerator current=null] : ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) ) ;
     public final Enumerator ruleDirection() throws RecognitionException {
         Enumerator current = null;
 
@@ -869,47 +899,47 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRobot.g:369:2: ( ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) ) )
-            // InternalRobot.g:370:2: ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) )
+            // InternalRobot.g:378:2: ( ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) ) )
+            // InternalRobot.g:379:2: ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) )
             {
-            // InternalRobot.g:370:2: ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) )
-            int alt6=4;
+            // InternalRobot.g:379:2: ( (enumLiteral_0= 'up' ) | (enumLiteral_1= 'down' ) | (enumLiteral_2= 'left' ) | (enumLiteral_3= 'right' ) )
+            int alt7=4;
             switch ( input.LA(1) ) {
-            case 15:
-                {
-                alt6=1;
-                }
-                break;
             case 16:
                 {
-                alt6=2;
+                alt7=1;
                 }
                 break;
             case 17:
                 {
-                alt6=3;
+                alt7=2;
                 }
                 break;
             case 18:
                 {
-                alt6=4;
+                alt7=3;
+                }
+                break;
+            case 19:
+                {
+                alt7=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalRobot.g:371:3: (enumLiteral_0= 'up' )
+                    // InternalRobot.g:380:3: (enumLiteral_0= 'up' )
                     {
-                    // InternalRobot.g:371:3: (enumLiteral_0= 'up' )
-                    // InternalRobot.g:372:4: enumLiteral_0= 'up'
+                    // InternalRobot.g:380:3: (enumLiteral_0= 'up' )
+                    // InternalRobot.g:381:4: enumLiteral_0= 'up'
                     {
-                    enumLiteral_0=(Token)match(input,15,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,16,FOLLOW_2); 
 
                     				current = grammarAccess.getDirectionAccess().getUpEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getDirectionAccess().getUpEnumLiteralDeclaration_0());
@@ -921,12 +951,12 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalRobot.g:379:3: (enumLiteral_1= 'down' )
+                    // InternalRobot.g:388:3: (enumLiteral_1= 'down' )
                     {
-                    // InternalRobot.g:379:3: (enumLiteral_1= 'down' )
-                    // InternalRobot.g:380:4: enumLiteral_1= 'down'
+                    // InternalRobot.g:388:3: (enumLiteral_1= 'down' )
+                    // InternalRobot.g:389:4: enumLiteral_1= 'down'
                     {
-                    enumLiteral_1=(Token)match(input,16,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,17,FOLLOW_2); 
 
                     				current = grammarAccess.getDirectionAccess().getDownEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getDirectionAccess().getDownEnumLiteralDeclaration_1());
@@ -938,12 +968,12 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalRobot.g:387:3: (enumLiteral_2= 'left' )
+                    // InternalRobot.g:396:3: (enumLiteral_2= 'left' )
                     {
-                    // InternalRobot.g:387:3: (enumLiteral_2= 'left' )
-                    // InternalRobot.g:388:4: enumLiteral_2= 'left'
+                    // InternalRobot.g:396:3: (enumLiteral_2= 'left' )
+                    // InternalRobot.g:397:4: enumLiteral_2= 'left'
                     {
-                    enumLiteral_2=(Token)match(input,17,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,18,FOLLOW_2); 
 
                     				current = grammarAccess.getDirectionAccess().getLeftEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getDirectionAccess().getLeftEnumLiteralDeclaration_2());
@@ -955,12 +985,12 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalRobot.g:395:3: (enumLiteral_3= 'right' )
+                    // InternalRobot.g:404:3: (enumLiteral_3= 'right' )
                     {
-                    // InternalRobot.g:395:3: (enumLiteral_3= 'right' )
-                    // InternalRobot.g:396:4: enumLiteral_3= 'right'
+                    // InternalRobot.g:404:3: (enumLiteral_3= 'right' )
+                    // InternalRobot.g:405:4: enumLiteral_3= 'right'
                     {
-                    enumLiteral_3=(Token)match(input,18,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,19,FOLLOW_2); 
 
                     				current = grammarAccess.getDirectionAccess().getRightEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getDirectionAccess().getRightEnumLiteralDeclaration_3());
@@ -1000,10 +1030,11 @@ public class InternalRobotParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000007B000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000079000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000000000F3000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000000F1000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008012L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008010L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000010L});
 
 }

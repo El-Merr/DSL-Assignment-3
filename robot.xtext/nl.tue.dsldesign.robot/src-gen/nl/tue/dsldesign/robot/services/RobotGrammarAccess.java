@@ -179,14 +179,22 @@ public class RobotGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.tue.dsldesign.robot.Robot.EInt");
-		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//EInt returns ecore::EInt:
-		//    INT;
+		//    '-'? INT;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//'-'? INT
+		public Group getGroup() { return cGroup; }
+		
+		//'-'?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
 		//INT
-		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 	
 	public class DirectionElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
@@ -339,7 +347,7 @@ public class RobotGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//EInt returns ecore::EInt:
-	//    INT;
+	//    '-'? INT;
 	public EIntElements getEIntAccess() {
 		return pEInt;
 	}

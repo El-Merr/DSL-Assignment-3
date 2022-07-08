@@ -22,24 +22,25 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRobotParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'up'", "'down'", "'left'", "'right'", "'begin'", "'end'", "'initial'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'up'", "'down'", "'left'", "'right'", "'begin'", "'end'", "'initial'", "','", "'-'"
     };
-    public static final int RULE_ID=5;
-    public static final int RULE_WS=9;
     public static final int RULE_STRING=6;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_INT=4;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_ID=5;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=4;
+    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -415,21 +416,31 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalRobot.g:162:1: ruleEInt : ( RULE_INT ) ;
+    // InternalRobot.g:162:1: ruleEInt : ( ( rule__EInt__Group__0 ) ) ;
     public final void ruleEInt() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:166:2: ( ( RULE_INT ) )
-            // InternalRobot.g:167:2: ( RULE_INT )
+            // InternalRobot.g:166:2: ( ( ( rule__EInt__Group__0 ) ) )
+            // InternalRobot.g:167:2: ( ( rule__EInt__Group__0 ) )
             {
-            // InternalRobot.g:167:2: ( RULE_INT )
-            // InternalRobot.g:168:3: RULE_INT
+            // InternalRobot.g:167:2: ( ( rule__EInt__Group__0 ) )
+            // InternalRobot.g:168:3: ( rule__EInt__Group__0 )
             {
-             before(grammarAccess.getEIntAccess().getINTTerminalRuleCall()); 
-            match(input,RULE_INT,FOLLOW_2); 
-             after(grammarAccess.getEIntAccess().getINTTerminalRuleCall()); 
+             before(grammarAccess.getEIntAccess().getGroup()); 
+            // InternalRobot.g:169:3: ( rule__EInt__Group__0 )
+            // InternalRobot.g:169:4: rule__EInt__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__EInt__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getEIntAccess().getGroup()); 
 
             }
 
@@ -1616,7 +1627,7 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_INT) ) {
+            if ( (LA6_0==RULE_INT||LA6_0==19) ) {
                 alt6=1;
             }
             switch (alt6) {
@@ -2046,18 +2057,180 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Initial__Group__4__Impl"
 
 
+    // $ANTLR start "rule__EInt__Group__0"
+    // InternalRobot.g:685:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    public final void rule__EInt__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRobot.g:689:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalRobot.g:690:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            {
+            pushFollow(FOLLOW_8);
+            rule__EInt__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__EInt__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EInt__Group__0"
+
+
+    // $ANTLR start "rule__EInt__Group__0__Impl"
+    // InternalRobot.g:697:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    public final void rule__EInt__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRobot.g:701:1: ( ( ( '-' )? ) )
+            // InternalRobot.g:702:1: ( ( '-' )? )
+            {
+            // InternalRobot.g:702:1: ( ( '-' )? )
+            // InternalRobot.g:703:2: ( '-' )?
+            {
+             before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
+            // InternalRobot.g:704:2: ( '-' )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==19) ) {
+                alt7=1;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalRobot.g:704:3: '-'
+                    {
+                    match(input,19,FOLLOW_2); 
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EInt__Group__0__Impl"
+
+
+    // $ANTLR start "rule__EInt__Group__1"
+    // InternalRobot.g:712:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    public final void rule__EInt__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRobot.g:716:1: ( rule__EInt__Group__1__Impl )
+            // InternalRobot.g:717:2: rule__EInt__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__EInt__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EInt__Group__1"
+
+
+    // $ANTLR start "rule__EInt__Group__1__Impl"
+    // InternalRobot.g:723:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    public final void rule__EInt__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalRobot.g:727:1: ( ( RULE_INT ) )
+            // InternalRobot.g:728:1: ( RULE_INT )
+            {
+            // InternalRobot.g:728:1: ( RULE_INT )
+            // InternalRobot.g:729:2: RULE_INT
+            {
+             before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
+            match(input,RULE_INT,FOLLOW_2); 
+             after(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__EInt__Group__1__Impl"
+
+
     // $ANTLR start "rule__Model__RobotsAssignment_1"
-    // InternalRobot.g:685:1: rule__Model__RobotsAssignment_1 : ( ruleRobot ) ;
+    // InternalRobot.g:739:1: rule__Model__RobotsAssignment_1 : ( ruleRobot ) ;
     public final void rule__Model__RobotsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:689:1: ( ( ruleRobot ) )
-            // InternalRobot.g:690:2: ( ruleRobot )
+            // InternalRobot.g:743:1: ( ( ruleRobot ) )
+            // InternalRobot.g:744:2: ( ruleRobot )
             {
-            // InternalRobot.g:690:2: ( ruleRobot )
-            // InternalRobot.g:691:3: ruleRobot
+            // InternalRobot.g:744:2: ( ruleRobot )
+            // InternalRobot.g:745:3: ruleRobot
             {
              before(grammarAccess.getModelAccess().getRobotsRobotParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -2088,17 +2261,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__InitialAssignment_2"
-    // InternalRobot.g:700:1: rule__Robot__InitialAssignment_2 : ( ruleInitial ) ;
+    // InternalRobot.g:754:1: rule__Robot__InitialAssignment_2 : ( ruleInitial ) ;
     public final void rule__Robot__InitialAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:704:1: ( ( ruleInitial ) )
-            // InternalRobot.g:705:2: ( ruleInitial )
+            // InternalRobot.g:758:1: ( ( ruleInitial ) )
+            // InternalRobot.g:759:2: ( ruleInitial )
             {
-            // InternalRobot.g:705:2: ( ruleInitial )
-            // InternalRobot.g:706:3: ruleInitial
+            // InternalRobot.g:759:2: ( ruleInitial )
+            // InternalRobot.g:760:3: ruleInitial
             {
              before(grammarAccess.getRobotAccess().getInitialInitialParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2129,17 +2302,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__StepsAssignment_3_0"
-    // InternalRobot.g:715:1: rule__Robot__StepsAssignment_3_0 : ( ruleStep ) ;
+    // InternalRobot.g:769:1: rule__Robot__StepsAssignment_3_0 : ( ruleStep ) ;
     public final void rule__Robot__StepsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:719:1: ( ( ruleStep ) )
-            // InternalRobot.g:720:2: ( ruleStep )
+            // InternalRobot.g:773:1: ( ( ruleStep ) )
+            // InternalRobot.g:774:2: ( ruleStep )
             {
-            // InternalRobot.g:720:2: ( ruleStep )
-            // InternalRobot.g:721:3: ruleStep
+            // InternalRobot.g:774:2: ( ruleStep )
+            // InternalRobot.g:775:3: ruleStep
             {
              before(grammarAccess.getRobotAccess().getStepsStepParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -2170,17 +2343,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Robot__StepsAssignment_3_1"
-    // InternalRobot.g:730:1: rule__Robot__StepsAssignment_3_1 : ( ruleStep ) ;
+    // InternalRobot.g:784:1: rule__Robot__StepsAssignment_3_1 : ( ruleStep ) ;
     public final void rule__Robot__StepsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:734:1: ( ( ruleStep ) )
-            // InternalRobot.g:735:2: ( ruleStep )
+            // InternalRobot.g:788:1: ( ( ruleStep ) )
+            // InternalRobot.g:789:2: ( ruleStep )
             {
-            // InternalRobot.g:735:2: ( ruleStep )
-            // InternalRobot.g:736:3: ruleStep
+            // InternalRobot.g:789:2: ( ruleStep )
+            // InternalRobot.g:790:3: ruleStep
             {
              before(grammarAccess.getRobotAccess().getStepsStepParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -2211,17 +2384,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__DirectionAssignment_1"
-    // InternalRobot.g:745:1: rule__Step__DirectionAssignment_1 : ( ruleDirection ) ;
+    // InternalRobot.g:799:1: rule__Step__DirectionAssignment_1 : ( ruleDirection ) ;
     public final void rule__Step__DirectionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:749:1: ( ( ruleDirection ) )
-            // InternalRobot.g:750:2: ( ruleDirection )
+            // InternalRobot.g:803:1: ( ( ruleDirection ) )
+            // InternalRobot.g:804:2: ( ruleDirection )
             {
-            // InternalRobot.g:750:2: ( ruleDirection )
-            // InternalRobot.g:751:3: ruleDirection
+            // InternalRobot.g:804:2: ( ruleDirection )
+            // InternalRobot.g:805:3: ruleDirection
             {
              before(grammarAccess.getStepAccess().getDirectionDirectionEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -2252,17 +2425,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__DistanceAssignment_2"
-    // InternalRobot.g:760:1: rule__Step__DistanceAssignment_2 : ( ruleEInt ) ;
+    // InternalRobot.g:814:1: rule__Step__DistanceAssignment_2 : ( ruleEInt ) ;
     public final void rule__Step__DistanceAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:764:1: ( ( ruleEInt ) )
-            // InternalRobot.g:765:2: ( ruleEInt )
+            // InternalRobot.g:818:1: ( ( ruleEInt ) )
+            // InternalRobot.g:819:2: ( ruleEInt )
             {
-            // InternalRobot.g:765:2: ( ruleEInt )
-            // InternalRobot.g:766:3: ruleEInt
+            // InternalRobot.g:819:2: ( ruleEInt )
+            // InternalRobot.g:820:3: ruleEInt
             {
              before(grammarAccess.getStepAccess().getDistanceEIntParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2293,17 +2466,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Initial__XPosAssignment_2"
-    // InternalRobot.g:775:1: rule__Initial__XPosAssignment_2 : ( ruleEInt ) ;
+    // InternalRobot.g:829:1: rule__Initial__XPosAssignment_2 : ( ruleEInt ) ;
     public final void rule__Initial__XPosAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:779:1: ( ( ruleEInt ) )
-            // InternalRobot.g:780:2: ( ruleEInt )
+            // InternalRobot.g:833:1: ( ( ruleEInt ) )
+            // InternalRobot.g:834:2: ( ruleEInt )
             {
-            // InternalRobot.g:780:2: ( ruleEInt )
-            // InternalRobot.g:781:3: ruleEInt
+            // InternalRobot.g:834:2: ( ruleEInt )
+            // InternalRobot.g:835:3: ruleEInt
             {
              before(grammarAccess.getInitialAccess().getXPosEIntParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2334,17 +2507,17 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Initial__YPosAssignment_4"
-    // InternalRobot.g:790:1: rule__Initial__YPosAssignment_4 : ( ruleEInt ) ;
+    // InternalRobot.g:844:1: rule__Initial__YPosAssignment_4 : ( ruleEInt ) ;
     public final void rule__Initial__YPosAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalRobot.g:794:1: ( ( ruleEInt ) )
-            // InternalRobot.g:795:2: ( ruleEInt )
+            // InternalRobot.g:848:1: ( ( ruleEInt ) )
+            // InternalRobot.g:849:2: ( ruleEInt )
             {
-            // InternalRobot.g:795:2: ( ruleEInt )
-            // InternalRobot.g:796:3: ruleEInt
+            // InternalRobot.g:849:2: ( ruleEInt )
+            // InternalRobot.g:850:3: ruleEInt
             {
              before(grammarAccess.getInitialAccess().getYPosEIntParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -2385,7 +2558,7 @@ public class InternalRobotParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000037800L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000007800L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000007802L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000080010L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
 

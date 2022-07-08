@@ -350,13 +350,22 @@ ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @after {
 	leaveRule();
 }:
-	this_INT_0=RULE_INT
-	{
-		$current.merge(this_INT_0);
-	}
-	{
-		newLeafNode(this_INT_0, grammarAccess.getEIntAccess().getINTTerminalRuleCall());
-	}
+	(
+		(
+			kw='-'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
+			}
+		)?
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
+		}
+	)
 ;
 
 // Rule Direction
