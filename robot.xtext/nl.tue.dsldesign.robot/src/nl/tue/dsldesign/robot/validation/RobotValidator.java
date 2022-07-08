@@ -15,17 +15,10 @@ import nl.tue.dsldesign.robot.metamodel.Step;
  */
 public class RobotValidator extends AbstractRobotValidator {
 	
-	int MAX_STEP_DISTANCE = 100;
+	int MAX_STEP_DISTANCE = 5;
+	int BOUND = 10;
 	
-	@Check
-	public void checkStepsPositiveInt(Robot r) {
-		for (Step s : r.getSteps()) {
-			if (s.getDistance() < 0) {
-				error("Steps cannot be negative", s, null);
-			}
-		}
-	}
-	
+	// checks if no two sequential steps have the same direction
 	@Check
 	public void checkNoSequentialDirections(Robot r) {
 		String prevDirection = "";
@@ -38,13 +31,44 @@ public class RobotValidator extends AbstractRobotValidator {
 		}
 	}
 	
+	// checks if the step distance is lower than the max step size
 	@Check
 	public void checkMaxStepSize(Robot r) {
 		
 		for (Step s : r.getSteps()) {
 			if (s.getDistance() > MAX_STEP_DISTANCE) {
-				error("The maximum distance per step is 100", s, null);
+				error("The maximum distance per step is "+MAX_STEP_DISTANCE, s, null);
 			}
 		}
 	}
+	// checks if the robot goes out of bounds at any time
+	@Check
+	public void checkOutOfBounds(Robot r) {
+		int xPos = r.getInitial().getXPos();
+		int yPos = r.getInitial().getYPos();
+		for (Step s : r.getSteps()) {
+			if (s.getDirection().toString().equals("up")) {
+				yPos += s.getDistance();
+			} else if (s.getDirection().toString().equals("down"))	{
+				yPos -= s.getDistance();
+			} else if (s.getDirection().toString().equals("right")) {
+				xPos += s.getDistance();
+			} else {
+				xPos -= s.getDistance();
+			}
+			if(Math.abs(xPos) > BOUND || Math.abs(yPos) > BOUND) {
+				error("The robot's position must be between 10 or -10 at all times", r, null);	
+			}
+		}
+	}
+	// Checks if the robot's initial position is within bounds
+	@Check
+	public void checkInitialPosition(Robot r) {
+		int xPos = r.getInitial().getXPos();
+		int yPos = r.getInitial().getYPos();
+		if(Math.abs(xPos) > BOUND || Math.abs(yPos) > BOUND) {
+			error("The initial position must be between 10 or -10", r.getInitial(), null);
+		}
+	}
+	
 }
