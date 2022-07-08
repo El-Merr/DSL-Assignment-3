@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model>
+	<robot>
+		<initial x="1" y="2"/>
+		<step dir="up" dist="3"/>
+		<step dir="left" dist="2"/>
+		<step dir="up" dist="5"/>
+	</robot>
 </model>

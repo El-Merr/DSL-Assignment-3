@@ -5,7 +5,7 @@ import seaborn as sns
 import os
 import glob
 
-for file in glob.glob(r'../testDSL/src-gen/*.xml'):
+for file in glob.glob(r'../robotTests/src-gen/*.xml'):
     filename = file.split('\\')[-1].split('.xml')[0]
 
     if not os.path.exists(file):
